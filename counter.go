@@ -8,16 +8,15 @@ import (
 
 func displayCount(num uint8) {
 	fmt.Printf("count: %d\n", num)
-	fmt.Print("(increment => i, clear => c, exit => e) >")
 }
 
 func main() {
-	fmt.Print("(increment => i, clear => c, exit => e) >")
 	scanner := bufio.NewScanner(os.Stdin)
 
 	var count uint8 = 0
 
-	for {
+	Loop: for {
+		fmt.Print("(increment => i, clear => c, exit => e) >")
 		scanner.Scan()
 		input := scanner.Text()
 
@@ -32,14 +31,13 @@ func main() {
 			fmt.Println("clear counter")
 			displayCount(count)
 			continue
-		case "e", "E":
+		case "exit", "e", "E":
 			fmt.Println("exit counter")
-			goto L
+			break Loop
 		default:
 			fmt.Println("try again")
 			displayCount(count)
 			continue
 		}
 	}
-L:
 }
