@@ -16,7 +16,7 @@ func main() {
 	var count uint8 = 0
 
 	Loop: for {
-		fmt.Print("(increment => i, clear => c, exit => e) >")
+		fmt.Print("Enter a value (type 'exit' to quit): ")
 		scanner.Scan()
 		input := scanner.Text()
 
