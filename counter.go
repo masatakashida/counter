@@ -21,21 +21,30 @@ func main() {
 		input := scanner.Text()
 
 		switch input {
-		case "", "i", "I":
+		case "increment", "", "i", "I":
 			count++
-			fmt.Println("increment counter")
+			fmt.Println("increment count")
 			displayCount(count)
 			continue
-		case "c", "C":
+		case "decrement", "d", "D":
+			if count > 0 {
+				count--
+				fmt.Println("decrement count")
+			} else {
+				fmt.Println("count is less than or equal to 0")
+			}
+			displayCount(count)
+			continue
+		case "clear" ,"c", "C":
 			count = 0
-			fmt.Println("clear counter")
+			fmt.Println("clear count")
 			displayCount(count)
 			continue
 		case "exit", "e", "E":
 			fmt.Println("exit counter")
 			break Loop
 		default:
-			fmt.Println("try again")
+			fmt.Println("counter: command not found")
 			displayCount(count)
 			continue
 		}
