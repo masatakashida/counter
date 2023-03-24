@@ -13,7 +13,7 @@ func main() {
 
 	Loop: for {
 		fmt.Printf("count: %d\n", count)
-		fmt.Print("Enter a value (type 'exit' to quit): ")
+		fmt.Print("Enter a value: ")
 		scanner.Scan()
 		input := scanner.Text()
 
